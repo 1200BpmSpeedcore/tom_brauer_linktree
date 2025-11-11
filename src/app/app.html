@@ -1,3 +1,36 @@
-🚧 Under construction 🚧
+<header class="navbar bg-body-tertiary sticky-top">
+  <nav class="container-xxl">
+    <div class="d-flex justify-content-between w-100">
+      <!-- Linke Seite - Interne Links -->
+      <div class="d-flex align-items-center gap-3">
+        <a class="navbar-brand" href="#">
+          <img src="images/tools.png" alt="Logo" width="30"/>
+            Tom Brauer
+        </a>
+        <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        <a class="nav-link" routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
+      </div>
 
-<router-outlet />
+      <!-- Rechte Seite - Externe Links -->
+      <div class="d-flex align-items-center gap-3">
+        <a class="nav-link" href="https://www.xing.com/profile/Tom_Brauer049114/" target="_blank">
+          <img src="images/xing.png" alt="XING" width="30"/>
+        </a>
+        <a class="nav-link" href="https://www.linkedin.com/in/tom-brauer-8450b932b/" target="_blank">
+          <img src="images/linkedin.png" alt="LinkedIn" width="30"/>
+        </a>
+        <a class="nav-link" href="https://github.com/1200BpmSpeedcore/" target="_blank">
+          <img src="images/github.svg" alt="Github" width="30"/>
+        </a>
+        <a class="nav-link" href="mailto:tombrauer0102@gmail.com">
+          <img src="images/at_symbol.png" alt="LinkedIn" width="30"/>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <router-outlet />
+</div>
+
