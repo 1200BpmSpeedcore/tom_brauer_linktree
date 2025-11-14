@@ -1,36 +1,88 @@
-<header class="navbar bg-body-tertiary sticky-top">
-  <nav class="container-xxl">
-    <div class="d-flex justify-content-between w-100">
-      <!-- Linke Seite - Interne Links -->
-      <div class="d-flex align-items-center gap-3">
-        <a class="navbar-brand" href="#">
-          <img src="images/tools.png" alt="Logo" width="30"/>
-            Tom Brauer
-        </a>
-        <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
-        <a class="nav-link" routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
-      </div>
+<div class="d-flex flex-column min-vh-100">
 
-      <!-- Rechte Seite - Externe Links -->
-      <div class="d-flex align-items-center gap-3">
-        <a class="nav-link" href="https://www.xing.com/profile/Tom_Brauer049114/" target="_blank">
-          <img src="images/xing.png" alt="XING" width="30"/>
-        </a>
-        <a class="nav-link" href="https://www.linkedin.com/in/tom-brauer-8450b932b/" target="_blank">
-          <img src="images/linkedin.png" alt="LinkedIn" width="30"/>
-        </a>
-        <a class="nav-link" href="https://github.com/1200BpmSpeedcore/" target="_blank">
-          <img src="images/github.svg" alt="Github" width="30"/>
-        </a>
-        <a class="nav-link" href="mailto:tombrauer0102@gmail.com">
-          <img src="images/at_symbol.png" alt="LinkedIn" width="30"/>
-        </a>
+  <header class="navbar bg-body-secondary sticky-top">
+    <nav class="container-xxl">
+      <div class="d-flex justify-content-between w-100">
+        <!-- Linke Seite - Interne Links -->
+        <div class="d-flex align-items-center gap-3">
+          <a class="navbar-brand" href="#">
+            <img src="images/tools.png" alt="Logo" width="30"/>
+              Tom Brauer
+          </a>
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+          <a class="nav-link" routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
+        </div>
+
+        <!-- Rechte Seite - Externe Links -->
+        <div class="d-flex align-items-center gap-3">
+          <a class="nav-link" href="https://www.xing.com/profile/Tom_Brauer049114/" target="_blank">
+            <img src="images/xing.png" alt="XING" width="30"/>
+          </a>
+          <a class="nav-link" href="https://www.linkedin.com/in/tom-brauer-8450b932b/" target="_blank">
+            <img src="images/linkedin.png" alt="LinkedIn" width="30"/>
+          </a>
+          <a class="nav-link" href="https://github.com/1200BpmSpeedcore/" target="_blank">
+            <img src="images/github.svg" alt="Github" width="30"/>
+          </a>
+          <a class="nav-link" href="mailto:tombrauer0102@gmail.com">
+            <img src="images/at_symbol.png" alt="LinkedIn" width="30"/>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow-1">
+    <div class="container py-4">
+      <router-outlet />
+    </div>
+  </main>
+
+  <footer class="footer bg-body-tertiary py-3">
+    <div class="container-xxl ">
+      <div class="row">
+        <!-- Personal Website Block -->
+        <div class="col-lg-3">
+          <a class="d-inline-flex align-items-center text-body-emphasis text-decoration-none" href="/" aria-label="Personal Website">
+            <img src="images/tools.png" alt="Logo" width="30"/>
+            <title>Personal Website</title>
+            <span class="fs-5">Personal Website</span>
+          </a>
+          <ul class="list-unstyled small">
+            <li class="mb-2">Designed and built by Tom Brauer as the only contributor using Angular, Sass and Bootstrap.</li>
+            <li class="mb-2">&copy; 2025 Tom Brauer. Code licensed
+              <a class="link-dark" href="https://github.com/1200BpmSpeedcore/tom_brauer_linktree/blob/main/LICENSE" target="_blank">Apache 2.0</a>.
+            </li>
+            <li>Currently in the Development Phase.</li>
+          </ul>
+        </div>
+
+        <!-- Links Block -->
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <h5>Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+            </li>
+            <li class="mb-2">
+              <a class="nav-link" routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
+            </li>
+            <li>
+              <a class="nav-link" href="https://www.youtube.com/watch?v=NVnjzpoY1O8" target="_blank">Cool Video</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h5>Projects</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a class="nav-link" href="https://github.com/1200BpmSpeedcore/tom_brauer_linktree" target="_blank">This Website</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </nav>
-</header>
+  </footer>
 
-<div class="container">
-  <router-outlet />
 </div>
-
