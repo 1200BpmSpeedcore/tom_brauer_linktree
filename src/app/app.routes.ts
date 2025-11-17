@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { HomePage } from './forms/home-page/home-page';
 import { Portfolio } from './forms/portfolio/portfolio';
 import { Disclosure } from './forms/imprint/disclosure/disclosure';
+import { PrivacyPolicy } from './forms/privacy/privacy-policy/privacy-policy';
 
 
 export const routes: Routes = [
@@ -16,4 +17,9 @@ export const routes: Routes = [
   {path: 'legal', redirectTo: 'imprint', pathMatch: 'full'},
   {path: 'legal-disclosure', redirectTo: 'imprint', pathMatch: 'full'},
   {path: 'disclosure', redirectTo: 'imprint', pathMatch: 'full'},
+
+  // Privacy Policy
+  {path: 'privacy', component: PrivacyPolicy},
+  {path: 'privacy-policy', redirectTo: 'privacy', pathMatch: 'full'},
+  {path: 'data-protection', redirectTo: 'privacy', pathMatch: 'full'}
 ];
