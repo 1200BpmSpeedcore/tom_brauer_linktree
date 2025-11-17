@@ -2,7 +2,10 @@ import { Routes } from '@angular/router';
 
 import { HomePage } from './forms/home-page/home-page';
 import { Portfolio } from './forms/portfolio/portfolio';
+
 import { Disclosure } from './forms/imprint/disclosure/disclosure';
+import { Impressum } from './forms/imprint/impressum/impressum';
+
 import { PrivacyPolicy } from './forms/privacy/privacy-policy/privacy-policy';
 
 
@@ -17,6 +20,9 @@ export const routes: Routes = [
   {path: 'legal', redirectTo: 'imprint', pathMatch: 'full'},
   {path: 'legal-disclosure', redirectTo: 'imprint', pathMatch: 'full'},
   {path: 'disclosure', redirectTo: 'imprint', pathMatch: 'full'},
+
+  // Impressum
+  {path: 'impressum', component: Impressum},
 
   // Privacy Policy
   {path: 'privacy', component: PrivacyPolicy},
