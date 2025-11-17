@@ -1,0 +1,21 @@
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: AI
+Disallow: /
+
+# Erlaube normale Suchmaschinen
+User-agent: *
+Allow: /
