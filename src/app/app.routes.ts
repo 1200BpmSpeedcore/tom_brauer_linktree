@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 
-import { HomePage } from './forms/home-page/home-page';
-import { Portfolio } from './forms/portfolio/portfolio';
+import { HomePage } from './pages/home/home';
+import { Portfolio } from './pages/portfolio/portfolio';
 
-import { Disclosure } from './forms/imprint/disclosure/disclosure';
-import { Impressum } from './forms/imprint/impressum/impressum';
+import { Disclosure } from './pages/imprint/disclosure/disclosure';
+import { Impressum } from './pages/imprint/impressum/impressum';
 
-import { PrivacyPolicy } from './forms/privacy/privacy-policy/privacy-policy';
-import { Datenschutzerklaerung } from './forms/privacy/datenschutzerklaerung/datenschutzerklaerung';
+import { PrivacyPolicy } from './pages/privacy/privacy-policy/privacy-policy';
+import { Datenschutzerklaerung } from './pages/privacy/datenschutzerklaerung/datenschutzerklaerung';
 
 
 export const routes: Routes = [

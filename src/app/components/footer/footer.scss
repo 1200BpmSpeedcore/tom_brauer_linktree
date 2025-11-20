@@ -1,0 +1,70 @@
+.footer {
+  border-top: 1px solid #dee2e6;
+  margin-top: auto;
+  background-color: #f8f9fa !important;
+
+  .footer-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #495057;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: linear-gradient(90deg, #0d6efd, #6f42c1);
+      border-radius: 2px;
+    }
+  }
+
+  .footer-link {
+    display: inline-block;
+    color: #6c757d !important;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 0.9rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(90deg, #0d6efd, #6f42c1);
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: #0d6efd !important;
+      transform: translateX(5px);
+
+      &::before {
+        width: 100%;
+      }
+    }
+
+    // Active state for router links
+    &.active {
+      color: #0d6efd !important;
+      font-weight: 500;
+
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .footer {
+    display: none !important;
+  }
+}
