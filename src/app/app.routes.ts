@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { CvViewer } from './components/cv-viewer/cv-viewer';
+
 import { HomePage } from './pages/home/home';
 import { Portfolio } from './pages/portfolio/portfolio';
 
@@ -15,6 +17,9 @@ export const routes: Routes = [
   {path: '', component: HomePage},
   {path: 'home', redirectTo: '', pathMatch: 'full'},
   {path: 'portfolio', component: Portfolio},
+
+  // CV Viewer
+  {path: 'view-cv', component: CvViewer},
 
   // Imprint
   {path: 'imprint', component: Disclosure},
