@@ -25,10 +25,8 @@
             [href]="social.url"
             [target]="social.external ? '_blank' : null"
             [rel]="social.external ? 'noopener noreferrer' : null"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            [attr.data-bs-title]="social.alt">
-            <img [src]="social.icon" [alt]="social.alt" width="30" height="30"/>
+            [attr.title]="social.alt">
+            <img [src]="social.icon" [alt]="social.platform" width="30" height="30"/>
           </a>
         }
 
@@ -38,9 +36,7 @@
             [ngClass]="['btn', 'btn-' + cvButtonConfig.size]"
             [disabled]="cvButtonConfig.disabled"
             ngbDropdownToggle
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            [attr.data-bs-title]="cvButtonConfig.tooltip">
+            [attr.title]="cvButtonConfig.tooltip">
             <img [src]="cvButtonConfig.icon"
               alt="Download Icon"
               width="30"
@@ -50,7 +46,7 @@
            <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end no-border">
             @for (cv of cvDownloads; track cv.language; let last = $last) {
               <button ngbDropdownItem
-                (click)="downloadFile(cv, $event)"
+                (click)="downloadCv(cv, $event)"
                 class="dropdown-item d-flex align-items-center gap-2">
                 <img [src]="cv.flag"
                   [alt]="cv.label"
