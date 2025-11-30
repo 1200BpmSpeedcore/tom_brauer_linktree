@@ -1,9 +1,7 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-
-import * as bootstrap from 'bootstrap';
 
 import { ButtonConfig, NavItem } from '../../models';
 import { SocialLink } from '../../models';
@@ -20,7 +18,7 @@ import { CvDownload } from '../../models';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header implements AfterViewInit {
+export class Header {
   readonly navItems: NavItem[] = [
     { label: 'Home', routerLink: '/', exact: true },
     { label: 'Portfolio', routerLink: '/portfolio', exact: true }
@@ -62,7 +60,7 @@ export class Header implements AfterViewInit {
       language: 'english',
       label: 'CV (English)',
       flag: 'images/flags/english_flag.svg',
-      path: 'cv/tom_brauer_cv_english.pdf',
+      path: 'https://drive.google.com/uc?export=download&id=1HnGwofAIGJ6NSilzAsZY7FjDUHUgUfMJ',
       fileType: 'PDF',
       description: 'My current CV in English in PDF format.'
     },
@@ -70,38 +68,24 @@ export class Header implements AfterViewInit {
       language: 'german',
       label: 'Lebenslauf (Deutsch)',
       flag: 'images/flags/german_flag.svg',
-      path: 'cv/tom_brauer_cv_deutsch.pdf',
+      path: 'https://drive.google.com/uc?export=download&id=1h_BGFCaIZDU1dMJgHROdQeH2mTbwX5tD',
       fileType: 'PDF',
       description: 'Mein aktueller Lebenslauf auf Deutsch im PDF-Format.'
     }
   ];
 
   cvButtonConfig : ButtonConfig = {
-    label: 'Download CV',
-    tooltip: 'Download my CV',
+    label: 'View CV',
+    tooltip: 'View my CV',
     icon: 'images/download.png',
     size: 'sm',
     disabled: false
   }
 
-  ngAfterViewInit(): void {
-    // Tooltips initialisieren
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(
-      tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl)
-    );
-  }
-
-  downloadFile(cv: CvDownload, event: Event): void {
+  downloadCv(cv: CvDownload, event: Event): void {
     event.preventDefault();
-    console.log(`Downloading CV: ${cv.label} from path: ${cv.path}`);
+    console.log(`Downloading CV: ${cv.label}`);
 
-    const link = document.createElement('a');
-    link.href = cv.path;
-    link.download = `tom_brauer_cv_${cv.language}.pdf`;
-
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open(cv.path, '_blank');
   }
 }
