@@ -1,6 +1,44 @@
-<p>#</p>
-<p>/</p>
-<p>/home</p>
+<section class="hero-section">
+  <div class="container py-5">
+    <div class="text-center my-5">
+      <p class="display-2 fw-bold">Welcome</p>
+      <p class="lead fs-4 text-muted">to my developer portfolio :&rpar;</p>
+    </div>
 
-<p>🚧 Under construction 🚧 </p>
-
+    <div class="py-5 my-5 d-flex flex-md-row align-items-center gap-5">
+      <div class="flex-shrink-0">
+        <img
+          class="rounded-4 border shadow img-fluid img-md"
+          src="https://i.ibb.co/tp6prCL4/application-photo.jpg"
+          alt="image of me">
+      </div>
+      <div class="flex-grow-1 ms-5">
+        <h1 class="fw-light text-secondary mb-2">Tom Brauer</h1>
+        <p class="display-4 fw-bold">Junior Software Developer</p>
+        <p class="lead fs-3">
+          Developing modern applications with
+          <span class="text-primary fw-semibold">Angular</span>,
+          <span class="text-primary fw-semibold">.NET</span> &
+          <span class="text-primary fw-semibold">SQL</span>
+        </p>
+        <div class="d-flex flex-md-row gap-2 mb-4">
+          <img src="images/location_pin.png" alt="Location Icon" width="30" height="30"/>
+          <p class="mt-2">Leipzig, Saxony, Germany</p>
+       </div>
+       <div class="d-flex flex-wrap gap-3">
+        @for (bConfig of buttonConfigs; track bConfig.label) {
+          <a
+            class="btn"
+            [ngClass]="['btn-' + bConfig.size, 'btn-' + bConfig.variant]"
+            [attr.title]="bConfig.tooltip"
+            [routerLink]="bConfig.routerLink"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: bConfig.exact }">
+            {{ bConfig.label }}
+          </a>
+        }
+       </div>
+      </div>
+    </div>
+  </div>
+</section>
