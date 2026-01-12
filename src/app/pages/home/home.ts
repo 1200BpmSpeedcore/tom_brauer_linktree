@@ -31,8 +31,7 @@ export class HomePage {
       variant: 'outline-secondary',
       size: 'lg',
       disabled: false,
-      // TODO: Add about me routing
-      routerLink: '/',
+      routerLink: '/aboutme',
       exact: true,
     }
   ];

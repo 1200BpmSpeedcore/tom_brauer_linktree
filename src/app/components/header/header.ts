@@ -21,7 +21,8 @@ import { CvDownload } from '../../models';
 export class Header {
   readonly navItems: NavItem[] = [
     { label: 'Home', routerLink: '/', exact: true },
-    { label: 'Portfolio', routerLink: '/portfolio', exact: true }
+    { label: 'Portfolio', routerLink: '/portfolio', exact: true },
+    { label: 'About Me', routerLink: '/aboutme', exact: true }
   ];
 
   readonly socialLinks: SocialLink[] = [

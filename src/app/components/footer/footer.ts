@@ -19,6 +19,7 @@ export class Footer {
       links: [
         { label: 'Home', routerLink: '/', external: false },
         { label: 'Portfolio', routerLink: '/portfolio', external: false },
+        { label: 'About Me', routerLink: '/aboutme', external: false },
         {
           label: 'Cool Video',
           href: 'https://www.youtube.com/watch?v=NVnjzpoY1O8',
