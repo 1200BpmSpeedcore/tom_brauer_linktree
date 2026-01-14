@@ -7,6 +7,8 @@ import { ButtonConfig, NavItem } from '../../models';
 import { SocialLink } from '../../models';
 import { CvDownload } from '../../models';
 
+import { SocialLinksService } from '../../services/social-links';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -19,40 +21,12 @@ import { CvDownload } from '../../models';
   styleUrl: './header.scss',
 })
 export class Header {
+  constructor(private socialLinksService: SocialLinksService) {}
+
   readonly navItems: NavItem[] = [
     { label: 'Home', routerLink: '/', exact: true },
-    { label: 'Portfolio', routerLink: '/portfolio', exact: true }
-  ];
-
-  readonly socialLinks: SocialLink[] = [
-    {
-      platform: 'XING',
-      url: 'https://www.xing.com/profile/Tom_Brauer049114/',
-      icon: 'images/xing.png',
-      alt: 'My XING profile',
-      external: true
-    },
-    {
-      platform: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/tom-brauer-8450b932b/',
-      icon: 'images/linkedin.png',
-      alt: 'My LinkedIn profile',
-      external: true
-    },
-    {
-      platform: 'GitHub',
-      url: 'https://github.com/1200BpmSpeedcore/',
-      icon: 'images/github.svg',
-      alt: 'My GitHub profile',
-      external: true
-    },
-    {
-      platform: 'Email',
-      url: 'mailto:tombrauer0102@gmail.com',
-      icon: 'images/at_symbol.png',
-      alt: 'Send me an email',
-      external: false
-    }
+    { label: 'Portfolio', routerLink: '/portfolio', exact: true },
+    { label: 'About Me', routerLink: '/aboutme', exact: true }
   ];
 
   cvDownloads: CvDownload[] = [
@@ -78,8 +52,13 @@ export class Header {
     label: 'View CV',
     tooltip: 'View my CV',
     icon: 'images/download.png',
+    variant: 'outline-primary',
     size: 'sm',
     disabled: false
+  }
+
+  get socialLinks(): SocialLink[] {
+    return this.socialLinksService.getAll();
   }
 
   downloadCv(cv: CvDownload, event: Event): void {

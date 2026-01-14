@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { HomePage } from './pages/home/home';
 import { Portfolio } from './pages/portfolio/portfolio';
+import { AboutMe } from './pages/about-me/about-me';
 
 import { Disclosure } from './pages/imprint/disclosure/disclosure';
 import { Impressum } from './pages/imprint/impressum/impressum';
@@ -15,6 +16,7 @@ export const routes: Routes = [
   {path: '', component: HomePage},
   {path: 'home', redirectTo: '', pathMatch: 'full'},
   {path: 'portfolio', component: Portfolio},
+  {path: 'aboutme', component: AboutMe},
 
   // Imprint
   {path: 'imprint', component: Disclosure},

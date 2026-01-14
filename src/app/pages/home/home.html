@@ -1,6 +1,124 @@
-<p>#</p>
-<p>/</p>
-<p>/home</p>
+<section class="hero-section">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <p class="display-2 fw-bold">Welcome</p>
+      <p class="lead fs-4 text-muted">to my developer portfolio :&rpar;</p>
+    </div>
 
-<p>🚧 Under construction 🚧 </p>
+    <div class="py-5 my-5 d-flex flex-md-row align-items-center gap-5">
+      <div class="flex-shrink-0">
+        <img
+          class="rounded-4 border shadow img-fluid img-md"
+          src="https://i.ibb.co/tp6prCL4/application-photo.jpg"
+          alt="image of me">
+      </div>
+      <div class="flex-grow-1 ms-5">
+        <h1 class="fw-light text-secondary mb-2">Tom Brauer</h1>
+        <p class="display-4 fw-bold">Junior Software Developer</p>
+        <p class="lead fs-3">
+          Developing modern applications with
+          <span class="text-primary fw-semibold">Angular</span>,
+          <span class="text-primary fw-semibold">.NET</span> &
+          <span class="text-primary fw-semibold">SQL</span>
+        </p>
+        <div class="d-flex flex-md-row gap-2 mb-4">
+          <img src="images/location_pin.png" alt="Location Icon" width="30" height="30"/>
+          <p class="mt-2">Leipzig, Saxony, Germany</p>
+       </div>
+       <div class="d-flex flex-wrap gap-3">
+        @for (bConfig of buttonConfigs; track bConfig.label) {
+          <a
+            class="btn"
+            [ngClass]="['btn-' + bConfig.size, 'btn-' + bConfig.variant]"
+            [attr.title]="bConfig.tooltip"
+            [routerLink]="bConfig.routerLink"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: bConfig.exact }">
+            {{ bConfig.label }}
+          </a>
+        }
+       </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="bg-secondary-subtle">
+  <div class="container py-5">
+    <p class="text-center mb-5 display-4">About this website</p>
+
+    <p class="lead">This site is my (semi-) professional <strong>Linktree</strong>.</p>
+
+    <p class="lead">
+      On this page you can explore everything about my work and easily connect with me through multiple channels. Whether you're a potential employer, collaborator, or fellow developer, you'll find all relevant links, contact methods, and resources right here.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container py-5">
+    <p class="text-center mb-5 display-4">Core Technologies</p>
+
+    <div class="row text-center g-4">
+      @for (icon of coreTechnologies; track icon.content) {
+        <div class="col-md-3 col-6">
+          <div class="p-4 bg-white rounded-3 shadow-sm">
+            <div class="text-primary mb-3" style="font-size: 3rem;">{{ icon.content }}</div>
+            <h4>{{ icon.title }}</h4>
+            <p class="small text-muted mb-0">{{ icon.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="text-center mt-5">
+      @for (bConfig of buttonConfigs; track bConfig.label) {
+        @if (bConfig.label === 'About Me') {
+          <a
+            class="btn btn-outline-primary"
+            [ngClass]="['btn-' + bConfig.size]"
+            [attr.title]="bConfig.tooltip"
+            [routerLink]="bConfig.routerLink"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: bConfig.exact }"
+          >
+            Explore All Skills
+          </a>
+        }
+      }
+    </div>
+  </div>
+</section>
+
+<section class="bg-secondary-subtle">
+  <div class="container py-5">
+    <h2 class="text-center mb-5 display-4">Connect With Me</h2>
+
+    <p class="lead text-center mb-5">
+      Let's get in touch! Here are the best ways to reach out and explore opportunities together.
+    </p>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="d-grid gap-3">
+          @for (link of socialLinks; track link.platform) {
+            <a
+              [href]="link.url"
+              [target]="link.external ? '_blank' : '_self'"
+              [attr.aria-label]="link.label"
+              class="btn btn-lg d-flex align-items-center justify-content-center p-3 border-2 fw-semibold"
+              [ngClass]="'btn-' + (link.color ? 'custom' : 'outline-dark')"
+              [style.border-color]="link.color"
+              [style.color]="link.color"
+            >
+
+              <span class="me-3" style="font-size: 1.5rem;">{{ link.iconEmoji }}</span>
+              <span class="flex-grow-1 text-start">{{ link.platform }}</span>
+              <span class="ms-2">→</span>
+            </a>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
