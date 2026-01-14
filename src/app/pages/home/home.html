@@ -28,7 +28,7 @@
        <div class="d-flex flex-wrap gap-3">
         @for (bConfig of buttonConfigs; track bConfig.label) {
           <a
-            class="btn"
+            class="btn btn-config"
             [ngClass]="['btn-' + bConfig.size, 'btn-' + bConfig.variant]"
             [attr.title]="bConfig.tooltip"
             [routerLink]="bConfig.routerLink"
@@ -63,7 +63,7 @@
       @for (icon of coreTechnologies; track icon.content) {
         <div class="col-md-3 col-6">
           <div class="p-4 bg-white rounded-3 shadow-sm">
-            <div class="text-primary mb-3" style="font-size: 3rem;">{{ icon.content }}</div>
+            <div class="icon-lg text-primary mb-3">{{ icon.content }}</div>
             <h4>{{ icon.title }}</h4>
             <p class="small text-muted mb-0">{{ icon.description }}</p>
           </div>
@@ -75,7 +75,7 @@
       @for (bConfig of buttonConfigs; track bConfig.label) {
         @if (bConfig.label === 'About Me') {
           <a
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-config"
             [ngClass]="['btn-' + bConfig.size]"
             [attr.title]="bConfig.tooltip"
             [routerLink]="bConfig.routerLink"
@@ -106,13 +106,13 @@
               [href]="link.url"
               [target]="link.external ? '_blank' : '_self'"
               [attr.aria-label]="link.label"
-              class="btn btn-lg d-flex align-items-center justify-content-center p-3 border-2 fw-semibold"
+              class="btn btn-lg btn-social d-flex align-items-center justify-content-center p-3 border-2 fw-semibold"
               [ngClass]="'btn-' + (link.color ? 'custom' : 'outline-dark')"
               [style.border-color]="link.color"
               [style.color]="link.color"
             >
 
-              <span class="me-3" style="font-size: 1.5rem;">{{ link.iconEmoji }}</span>
+              <span class="icon-sm me-3">{{ link.iconEmoji }}</span>
               <span class="flex-grow-1 text-start">{{ link.platform }}</span>
               <span class="ms-2">→</span>
             </a>
