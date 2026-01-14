@@ -23,10 +23,10 @@
         @for (social of socialLinks; track social.platform) {
           <a class="nav-link"
             [href]="social.url"
-            [target]="social.external ? '_blank' : null"
+            [target]="social.external ? '_blank' : '_self'"
             [rel]="social.external ? 'noopener noreferrer' : null"
-            [attr.title]="social.alt">
-            <img [src]="social.icon" [alt]="social.platform" width="30" height="30"/>
+            [attr.title]="social.label">
+            <img [src]="social.iconPath" [alt]="social.platform" width="30" height="30"/>
           </a>
         }
 
