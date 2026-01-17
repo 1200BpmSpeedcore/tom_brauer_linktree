@@ -1,4 +1,36 @@
-<p>/portfolio</p>
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <p class="display-2 fw-bold">My Projects</p>
+    <p class="lead fs-4 text-muted">Check out some of my projects.</p>
+  </div>
 
-<p>🚧 Under construction 🚧 </p>
-
+  @for (link of projectLinks; track link.title) {
+  <div class="py-5 px-4 mt-5 d-flex flex-md-row align-items-center gap-5 border border-2 border-dark rounded-5">
+      <div class="flex-shrink-0">
+        <img [src]="link.imageUrl" [alt]="link.title" class="img-sm"/>
+      </div>
+      <div class="flex-grow-1 ms-5">
+        <h2>{{ link.title }}</h2>
+        <p>{{ link.description }}</p>
+        <div class="d-flex flex-wrap gap-3">
+          @if (link.href) {
+            <a
+              [href]="link.href"
+              target="_blank"
+              class="btn btn-outline-primary btn-interactive"
+            >
+              Visit Site
+            </a>
+          }
+          <a
+            [href]="link.githubUrl"
+            target="_blank"
+            class="btn btn-outline-secondary btn-interactive"
+          >
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  }
+</div>
