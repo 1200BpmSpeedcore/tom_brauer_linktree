@@ -28,7 +28,7 @@
        <div class="d-flex flex-wrap gap-3">
         @for (bConfig of buttonConfigs; track bConfig.label) {
           <a
-            class="btn btn-config"
+            class="btn btn-interactive"
             [ngClass]="['btn-' + bConfig.size, 'btn-' + bConfig.variant]"
             [attr.title]="bConfig.tooltip"
             [routerLink]="bConfig.routerLink"
@@ -75,7 +75,7 @@
       @for (bConfig of buttonConfigs; track bConfig.label) {
         @if (bConfig.label === 'About Me') {
           <a
-            class="btn btn-outline-primary btn-config"
+            class="btn btn-outline-primary btn-interactive"
             [ngClass]="['btn-' + bConfig.size]"
             [attr.title]="bConfig.tooltip"
             [routerLink]="bConfig.routerLink"

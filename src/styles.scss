@@ -7,7 +7,21 @@
   }
 }
 
+/* ============== BUTTON STYLES ============= */
+
+.btn-interactive {
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ============ END BUTTON STYLES ============ */
+
 /* ============= DROPDOWN STYLES ============= */
+
 .dropdown-item {
   transition: all 0.2s ease-in-out;
   border-radius: 0.375rem;
@@ -29,6 +43,11 @@
 
 .img-md {
   max-height: 350px;
+  width: auto;
+}
+
+.img-sm {
+  max-height: 200px;
   width: auto;
 }
 
