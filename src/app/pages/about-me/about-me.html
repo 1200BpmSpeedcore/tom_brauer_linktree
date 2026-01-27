@@ -1,3 +1,104 @@
-<p>/aboutme</p>
+<section>
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <p class="display-2 fw-bold">About Me</p>
+      <p class="lead fs-4 text-muted">Learn more about who I am.</p>
+    </div>
 
-<p>🚧 Under construction 🚧 </p>
+    <div class="py-5 my-5 d-flex flex-md-row align-items-center gap-5">
+      <div class="flex-grow-1 ms-5">
+        <h3 class="mb-2">Greetings!</h3>
+        <p class="lead">
+          I'm Tom Brauer (nickname Avery), a {{currentAge()}} years old junior software developer from the city of Leipzig, Germany.
+        </p>
+        <p class="lead">
+          I discovered my passion for code not through theory but in hands-on experiences. After a short stay at an university where I studied computer science I decided to pursue a more practical path. During my training I dove headfirst into the depths of the .NET world, designed and developed my own software from the ground up and wasn't limited to just bug fixes. The result was a tailor-made solution for visualizing IT assets. That experience showed me: I'm driven by solving concrete problems with clean code.
+        </p>
+        <p class="lead">
+          Today I specialize in building modern web applications using Angular for the frontend and .NET for the backend. I'm constantly expanding my skill set and staying up-to-date with the latest technologies to deliver efficient and scalable solutions.
+        </p>
+      </div>
+
+      <div class="flex-shrink-0">
+        <img
+          class="img-fluid img-md"
+          src="https://i.ibb.co/HDZ1jTJJ/puzzle-pieces.png"
+          alt="puzzle pieces">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-secondary-subtle">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <p class="display-2 fw-bold">My Toolkit</p>
+      <p class="lead fs-4 text-muted">A collection of my technical skills with proficiency levels</p>
+    </div>
+
+    <div class="accordion accordion-flush" id="technologiesAccordion">
+      @for(item of technologySkills; track item.title) {
+        <div class="accordion-item mb-4 shadow-sm hover-shadow">
+          <div class="accordion-header">
+            <button class="accordion-button collapsed fs-3"
+              type="button"
+              data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#flush-' + item.id"
+              [attr.aria-controls]="'flush-' + item.id"
+              aria-expanded="false"
+            >
+              {{item.title}}
+            </button>
+          </div>
+
+          <div [id]="'flush-' + item.id"
+            class="accordion-collapse collapse"
+            data-bs-parent="#technologiesAccordion"
+          >
+            <div class="accordion-body">
+              <ul class="list-unstyled mb-0">
+                @for(subitem of item.subitems; track subitem.name) {
+                  <li class="d-flex align-items-center justify-content-between mb-3 p-3 rounded hover-bg">
+                    <!-- Linke Seite: Logo + Text -->
+                    <div class="d-flex align-items-center flex-grow-1 me-3">
+                      <div class="flex-shrink-0 me-3">
+                        @if (subitem.logoSource) {
+                          <img [src]="subitem.logoSource"
+                               [alt]="subitem.name + ' Logo'"
+                               class="tech-icon rounded"
+                               width="40" height="40"
+                          >
+                        } @else {
+                          <div class="tech-icon-placeholder rounded bg-light d-flex align-items-center justify-content-center"
+                               style="width: 40px; height: 40px;">
+                            <span class="text-muted small"></span>
+                          </div>
+                        }
+                      </div>
+                      <div class="flex-grow-1">
+                        <strong class="d-block fs-5">{{subitem.name}}</strong>
+                        @if (subitem.description) {
+                          <small class="text-muted d-block mt-1">{{subitem.description}}</small>
+                        }
+                      </div>
+                    </div>
+
+                    <!-- Rechte Seite: Circle Diagram -->
+                    <div class="flex-shrink-0">
+                      <app-circle-diagram
+                        [fillLevel]="subitem.fillLevel"
+                        [size]="60"
+                        [color]="'#0d6efd'"
+                        [showLabel]="false">
+                      </app-circle-diagram>
+                    </div>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
