@@ -28,3 +28,77 @@
     </div>
   </div>
 </section>
+
+<section class="bg-secondary-subtle">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <p class="display-2 fw-bold">My Toolkit</p>
+      <p class="lead fs-4 text-muted">A collection of my technical skills with proficiency levels</p>
+    </div>
+
+    <div class="accordion accordion-flush" id="technologiesAccordion">
+      @for(item of technologySkills; track item.title) {
+        <div class="accordion-item mb-4 shadow-sm hover-shadow">
+          <div class="accordion-header">
+            <button class="accordion-button collapsed fs-3"
+              type="button"
+              data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#flush-' + item.id"
+              [attr.aria-controls]="'flush-' + item.id"
+              aria-expanded="false"
+            >
+              {{item.title}}
+            </button>
+          </div>
+
+          <div [id]="'flush-' + item.id"
+            class="accordion-collapse collapse"
+            data-bs-parent="#technologiesAccordion"
+          >
+            <div class="accordion-body">
+              <ul class="list-unstyled mb-0">
+                @for(subitem of item.subitems; track subitem.name) {
+                  <li class="d-flex align-items-center justify-content-between mb-3 p-3 rounded hover-bg">
+                    <!-- Linke Seite: Logo + Text -->
+                    <div class="d-flex align-items-center flex-grow-1 me-3">
+                      <div class="flex-shrink-0 me-3">
+                        @if (subitem.logoSource) {
+                          <img [src]="subitem.logoSource"
+                               [alt]="subitem.name + ' Logo'"
+                               class="tech-icon rounded"
+                               width="40" height="40"
+                          >
+                        } @else {
+                          <div class="tech-icon-placeholder rounded bg-light d-flex align-items-center justify-content-center"
+                               style="width: 40px; height: 40px;">
+                            <span class="text-muted small"></span>
+                          </div>
+                        }
+                      </div>
+                      <div class="flex-grow-1">
+                        <strong class="d-block fs-5">{{subitem.name}}</strong>
+                        @if (subitem.description) {
+                          <small class="text-muted d-block mt-1">{{subitem.description}}</small>
+                        }
+                      </div>
+                    </div>
+
+                    <!-- Rechte Seite: Circle Diagram -->
+                    <div class="flex-shrink-0">
+                      <app-circle-diagram
+                        [fillLevel]="subitem.fillLevel"
+                        [size]="60"
+                        [color]="'#0d6efd'"
+                        [showLabel]="false">
+                      </app-circle-diagram>
+                    </div>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

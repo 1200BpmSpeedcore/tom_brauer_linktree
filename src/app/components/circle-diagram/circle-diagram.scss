@@ -1,0 +1,38 @@
+.circle-diagram-container {
+  display: inline-block;
+}
+
+.circular-chart {
+  display: block;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  animation: circleProgress 1s ease-out forwards;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3;
+}
+
+.diagram-percentage {
+  display: block;
+  line-height: 1;
+}
+
+.diagram-label {
+  display: block;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+/* Animation */
+@keyframes circleProgress {
+  0% {
+    stroke-dasharray: 0, 100;
+  }
+}

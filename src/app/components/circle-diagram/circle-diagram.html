@@ -1,0 +1,35 @@
+<div class="circle-diagram-container">
+  <div class="position-relative" [style.width.px]="size" [style.height.px]="size">
+    <!-- SVG circle -->
+    <svg [attr.width]="size" [attr.height]="size" viewBox="0 0 36 36" class="circular-chart">
+      <path class="circle-bg"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+        fill="none"
+        stroke="#eee"
+        stroke-width="3"/>
+
+      <path class="circle"
+        [attr.stroke-dasharray]="fillLevel + ', 100'"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+        fill="none"
+        stroke-width="3"
+        stroke-linecap="round"
+        [style.stroke]="color"/>
+    </svg>
+
+    <div class="position-absolute top-50 start-50 translate-middle text-center">
+      <span class="fw-bold diagram-percentage" [style.color]="color">
+        {{fillLevel}}%
+      </span>
+      @if (showLabel) {
+        <div class="diagram-label text-muted" [style.fontSize.px]="size * 0.1">
+          {{getProficiencyLabel()}}
+        </div>
+      }
+    </div>
+  </div>
+</div>
