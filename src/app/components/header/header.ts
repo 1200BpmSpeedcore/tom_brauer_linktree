@@ -8,6 +8,7 @@ import { SocialLink } from '../../models';
 import { CvDownload } from '../../models';
 
 import { SocialLinksService } from '../../services/social-links';
+import { ShowOnDirective } from '../../directives/show-on/show-on';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,8 @@ import { SocialLinksService } from '../../services/social-links';
   imports: [
     RouterModule,
     CommonModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    ShowOnDirective
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',

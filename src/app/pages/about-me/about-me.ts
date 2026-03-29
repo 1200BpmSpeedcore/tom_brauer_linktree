@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 import { CircleDiagramComponent } from '../../components/circle-diagram/circle-diagram';
 
+import { ShowOnDirective } from '../../directives/show-on/show-on';
+
 import { AccordionTechnologyItem } from '../../models';
+
+import { ResponsiveService } from '../../services/responsive/responsive';
 
 import { FillLevel } from '../../types';
 
@@ -12,7 +17,8 @@ import { FillLevel } from '../../types';
   standalone: true,
   imports: [
     CommonModule,
-    CircleDiagramComponent
+    CircleDiagramComponent,
+    ShowOnDirective
   ],
   templateUrl: './about-me.html',
   styleUrl: './about-me.scss',
@@ -29,6 +35,8 @@ export class AboutMe {
         )
       ) ? 1 : 0);
   }
+
+  leadClass$: Observable<string>;
 
 readonly technologySkills: AccordionTechnologyItem[] = [
   {
@@ -240,4 +248,8 @@ readonly technologySkills: AccordionTechnologyItem[] = [
     ]
   }
   ];
+
+  constructor(private responsiveService: ResponsiveService) {
+    this.leadClass$ = this.responsiveService.getLeadClass();
+  }
 }

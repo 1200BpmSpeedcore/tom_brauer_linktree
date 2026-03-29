@@ -5,7 +5,7 @@
       <div class="d-flex align-items-center gap-3">
         <a class="navbar-brand" routerLink="/">
           <img src="images/business_card.svg" alt="Website Logo" width="30" height="30"/>
-            Tom Brauer
+          <span *appShowOn="'desktop'">Tom Brauer</span>
         </a>
 
         @for (item of navItems; track item.label) {
@@ -20,18 +20,59 @@
 
       <!-- Rechte Seite - Externe Links -->
       <div class="d-flex align-items-center gap-1">
-        @for (social of socialLinks; track social.platform) {
-          <a class="nav-link"
-            [href]="social.url"
-            [target]="social.external ? '_blank' : '_self'"
-            [rel]="social.external ? 'noopener noreferrer' : null"
-            [attr.title]="social.label">
-            <img [src]="social.iconPath" [alt]="social.platform" width="30" height="30"/>
-          </a>
-        }
+        <!-- Desktop: Alle Links als Button -->
+        <div *appShowOn="'desktop'" class="d-flex align-items-center">
+          @for (social of socialLinks; track social.platform) {
+            <a class="nav-link"
+              [href]="social.url"
+              [target]="social.external ? '_blank' : '_self'"
+              [rel]="social.external ? 'noopener noreferrer' : null"
+              [attr.title]="social.label">
+              <img [src]="social.iconPath" [alt]="social.platform" width="30" height="30"/>
+            </a>
+          }
+        </div>
+
+        <!-- Mobile: Links im Dropdown -->
+        <div *appShowOn="'mobile'" class="d-flex align-items-center">
+          <div ngbDropdown class="d-inline-block">
+            <button
+              class="btn btn-sm"
+              ngbDropdownToggle
+              title="Social Media Links"
+              aria-label="Social Media Links">
+              <img src="images/hamburger_menu.svg"
+                alt="Download Icon"
+                width="30"
+                height="30"/>
+            </button>
+
+            <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+              <div class="dropdown-header small text-muted">Social Media</div>
+
+              @for (social of socialLinks; track social.platform; let last = $last) {
+                <a ngbDropdownItem
+                  class="dropdown-item d-flex align-items-center gap-2 py-2"
+                  [href]="social.url"
+                  [target]="social.external ? '_blank' : '_self'"
+                  [rel]="social.external ? 'noopener noreferrer' : null">
+                  <img [src]="social.iconPath"
+                    [alt]="social.platform"
+                    width="20"
+                    height="20"/>
+                  <span class="text-capitalize">{{ social.platform }}</span>
+                </a>
+
+                @if (!$last) {
+                  <div class="dropdown-divider my-1"></div>
+                }
+              }
+            </div>
+          </div>
+        </div>
 
         <!-- CV Download Button -->
-        <div ngbDropdown class="d-flex align-items-center">
+        <div *appShowOn="'desktop'" ngbDropdown class="d-flex align-items-center">
            <button
             [ngClass]="['btn', 'btn-' + cvButtonConfig.size]"
             [disabled]="cvButtonConfig.disabled"
@@ -43,7 +84,7 @@
               height="30"/>
            </button>
 
-           <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end no-border">
+           <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
             @for (cv of cvDownloads; track cv.language; let last = $last) {
               <button ngbDropdownItem
                 (click)="downloadCv(cv, $event)"

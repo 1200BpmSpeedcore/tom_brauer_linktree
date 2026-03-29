@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { InternalNavButton, Icon, SocialLink } from '../../models';
 
 import { SocialLinksService } from '../../services/social-links';
+import { ResponsiveService } from '../../services/responsive/responsive';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,10 @@ import { SocialLinksService } from '../../services/social-links';
 export class HomePage implements OnInit {
   socialLinks: SocialLink[] = [];
 
-  constructor(private socialLinksService: SocialLinksService) {}
+  constructor(
+    private socialLinksService: SocialLinksService,
+    public responsiveService: ResponsiveService) {
+  }
 
   ngOnInit(): void {
     console.log('🔄 HomePage initialisiert');

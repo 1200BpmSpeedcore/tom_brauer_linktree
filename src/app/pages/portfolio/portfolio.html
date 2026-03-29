@@ -7,7 +7,10 @@
   @for (link of projectLinks; track link.title) {
   <div class="py-5 px-4 mt-5 d-flex flex-md-row align-items-center gap-5 border border-2 border-dark rounded-5">
       <div class="flex-shrink-0">
-        <img [src]="link.imageUrl" [alt]="link.title" class="img-sm"/>
+        <img
+          [src]="link.imageUrl"
+          [alt]="link.title"
+          [ngClass] ="responsiveService.smallImageSizeClass$ | async"/>
       </div>
       <div class="flex-grow-1 ms-5">
         <h2>{{ link.title }}</h2>

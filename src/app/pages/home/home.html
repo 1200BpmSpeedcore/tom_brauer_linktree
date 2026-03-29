@@ -8,7 +8,8 @@
     <div class="py-5 my-5 d-flex flex-md-row align-items-center gap-5">
       <div class="flex-shrink-0">
         <img
-          class="rounded-4 border shadow img-fluid img-md"
+          class="rounded-4 border shadow img-fluid"
+          [ngClass] = "responsiveService.imageSizeClass$ | async"
           src="https://i.ibb.co/tp6prCL4/application-photo.jpg"
           alt="image of me">
       </div>
