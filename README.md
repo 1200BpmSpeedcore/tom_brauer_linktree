@@ -30,7 +30,6 @@ This project serves as my central digital presence. It's a Linktree inspired por
 **Preview Phase** - This project is not finished yet. I am working on continuously adding new features and improving my code. Things I want to add:
 
 ### 🎯 Planned Features
-- **Mobile Support** - Enhanced responsive design for all mobile devices
 - **Dark Mode Support** - Theme toggle for light/dark mode preferences
 - **Performance Optimization**
 - **Internationalization** - Multi-language support (German/English)
