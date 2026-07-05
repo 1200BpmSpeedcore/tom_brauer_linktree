@@ -22,12 +22,7 @@ export class HomePage implements OnInit {
   constructor(private socialLinksService: SocialLinksService) {}
 
   ngOnInit(): void {
-    console.log('🔄 HomePage initialisiert');
-
     this.socialLinks = this.socialLinksService.getAll();
-
-    console.log('📋 Button Configs:', JSON.stringify(this.buttonConfigs));
-    console.log('📋 Social Links:', this.socialLinks);
   }
 
   readonly buttonConfigs: InternalNavButton[] = [
@@ -64,7 +59,7 @@ export class HomePage implements OnInit {
     },
     {
       content: '🗃️',
-      title: 'Database',
+      title: 'SQL',
       description: 'Relational Databases'
     },
     {
